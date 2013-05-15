@@ -1,0 +1,31 @@
+#Main
+hdr_order Date From To Cc
+set move=no
+set pager_index_lines=8
+set pager_stop
+set editor='vim + -c "set textwidth=72" -c "set wrap" -c "set nocp" -c "?^$"'
+
+#Cache
+set message_cachedir="~/.mutt/cache/msg_cache"
+set header_cache="~/.mutt/cache/header_cache"
+set certificate_file=~/.mutt/certificates
+
+#Sort
+#set sort = 'reverse-date-sent'
+set sort = 'threads'
+set sort_aux = 'last-date-received'
+
+#Ignore
+#ignore *
+#unignore 
+#unignore
+ignore "Authentication-Results:"
+ignore "DomainKey-Signature:"
+ignore "DKIM-Signature:"
+
+#Misc
+set timeout=60  #Check for mail every minute
+set mail_check=5
+set smart_wrap = yes
+set ispell='aspell --mode=email check'
+#set signature="~/.mutt_signature"

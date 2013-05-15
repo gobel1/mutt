@@ -1,0 +1,10 @@
+# Locales
+set locale="fr_FR@utf-8"
+set charset="utf-8"
+# Date Format
+set date_format="%A %d %b %Y à %H:%M:%S (%Z)"
+set index_format="%4C %D %H %Z %{%b %d} %-15.15L %-20.20t (%?l?%4l&%4c?) %s"
+# phrase d'intro pour réponse quotée
+set attribution="============================= \n %n a écrit le texte suivant : \n=============================="
+set forward_format="[Fwd: %s]"
+set forward_quote

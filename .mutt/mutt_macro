@@ -1,0 +1,2 @@
+macro index <esc>1 "y1<return><return>" # ESC+1 takes to first INBOX
+macro index <esc>2 "y5<return><return>" # ESC+2 takes to the second

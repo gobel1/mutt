@@ -1,0 +1,30 @@
+set my_tmp=`gpg -o ~/.secret/.tmp -d ~/.secret/.passwd.gpg`
+set my_pass1=`awk '/GMail1:/ {print $2}' ~/.secret/.tmp`
+set my_pass2=`awk '/GMail2:/ {print $2}' ~/.secret/.tmp`
+set my_del=`rm -f ~/.secret/.tmp`
+
+# Setup for user1:
+set folder="imaps://user1@imap.gmail.com/"
+mailboxes =INBOX =[Gmail]/Drafts =[Gmail]/'Sent Mail' =[Gmail]/Spam
+folder-hook 'imaps://user1@imap.gmail.com' " \
+        set     folder=imaps://user1@imap.gmail.com/ \
+                postponed=+[Gmail]/Drafts \
+                record=+[Gmail]/'Sent Mail' \
+                smtp_url=smtps://user1@smtp.gmail.com \
+                smtp_pass=$my_pass1 \
+                signature=~/.mutt/user1.sig \
+                from='User One <user1@gmail.com> ' \
+                realname='User One' "
+
+# Setup for user2:
+set folder="imaps://user2@imap.gmail.com/"
+mailboxes =INBOX =[Gmail]/Drafts =[Gmail]/'Sent Mail' =[Gmail]/Spam
+folder-hook 'imaps://user2@imap.gmail.com' " \
+        set     folder=imaps://user2@imap.gmail.com/ \
+                postponed=+[Gmail]/Drafts \
+                record=+[Gmail]/'Sent Mail' \
+                smtp_url=smtps://user2@smtp.gmail.com \
+                smtp_pass=$my_pass2 \
+                signature=~/.mutt/user2.sig \
+                from='User Two <user2@gmail.com> ' \
+                realname='User Two' "
